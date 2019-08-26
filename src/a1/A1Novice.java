@@ -56,7 +56,8 @@ public class A1Novice {
 		scan.close();
 		
 		for(int l=0; l<values.length; l++) {
-			System.out.println(initials[l] + ". " + lastName[l] + ": " + totalCost[l]);		
+			System.out.println(initials[l] + ". " + lastName[l] + ": " + 
+			String.format("%.2f", totalCost[l]));		
 		}
 	}
 
