@@ -7,20 +7,15 @@ public class A1Novice {
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
-
-		// Your code follows here.
 		
-		// Read in count of people to process
+		// Read in count of people to be processed
 		
 		int count = scan.nextInt();
 		
-		//Create an array to store numbers
 		
-		int[] values = new int[count];
-		
-		/* Create arrays for first initial, 
-		 * Last name, and total cost.
-		 */
+		// Create arrays for first name initial, 
+		// Last name, and total amount spent by each person.
+	
 		
 		char[] initials = new char[count];
 		String[] lastName = new String[count];
@@ -28,9 +23,10 @@ public class A1Novice {
 		
 		// for loop to go through each entry
 		
-		for (int i=0; i<values.length; i++) {
+		for (int i=0; i<count; i++) {
 			
 			// Store value of first name
+			
 			String name = scan.next();
 			
 			// Add first initial to initials array
@@ -41,10 +37,13 @@ public class A1Novice {
 			
 			lastName[i] = scan.next();
 			
-			int diffItems = scan.nextInt();
-		
+			// Read in amount of different items and initialize cost variable
+			// To be used in for loop
+			
+			int diffItems = scan.nextInt(); 
 			double cost = 0;
 			
+			// for loop to find total of all purchases using findSum method
 			for (int j=0; j<diffItems; j++) {
 				cost += findSum(scan.nextInt(), scan.next(), scan.nextDouble());
 			}
@@ -55,7 +54,9 @@ public class A1Novice {
 		
 		scan.close();
 		
-		for(int l=0; l<values.length; l++) {
+		// Printing information as F. Last: Total
+		// Total cost formatted to include two decimal places
+		for(int l=0; l<count; l++) {
 			System.out.println(initials[l] + ". " + lastName[l] + ": " + 
 			String.format("%.2f", totalCost[l]));		
 		}
@@ -67,11 +68,7 @@ public class A1Novice {
 	
 	static double findSum(int items, String itemName, double price) {
 		
-
-		
 		double total = items*price;
-		
-		
 		return total;
 		
 	}
