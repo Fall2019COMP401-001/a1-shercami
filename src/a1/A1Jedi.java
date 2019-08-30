@@ -9,7 +9,7 @@ public class A1Jedi {
 		Scanner scan = new Scanner(System.in);
 
 		// Establish number of unique items available for purchase
-		// and arrays for items and prices
+		// and arrays for items and prices through scanner entry
 		
 		int itemCount = scan.nextInt();
 		String[] items = new String[itemCount];
@@ -22,7 +22,9 @@ public class A1Jedi {
 			
 		}
 		
-		// Establish number of customers making purchases
+		// Establish variable holding number of customers making purchases,
+		// as well as2D int array whose columns correspond to individual
+		// customers and whose rows are the available items for purchase
 		int customers = scan.nextInt();
 		int[][] purchases = new int[itemCount][customers];
 		
@@ -32,17 +34,19 @@ public class A1Jedi {
 			String first = scan.next();
 			String last = scan.next();
 			
-			int ind_Items = scan.nextInt();
+			// Number of unique items purchased by a customer
+			int uniq_Items = scan.nextInt();
 			
 			// for loop to populate purchases array
-			for (int j=0; j<ind_Items; j++) {
+			for (int j=0; j<uniq_Items; j++) {
 				populate(scan.nextInt(), scan.next(), purchases, items, i);
 				}
 			}
 		
 		scan.close();
 		
-		// Print the total quantity purchased of each individual item
+		// Total the quantity purchased for each item, as well as
+		// how many customers bought them
 		for (int i=0; i<itemCount; i++) {
 			int itemTotal = 0;
 			int custBought = 0;
@@ -52,6 +56,7 @@ public class A1Jedi {
 					custBought++;
 				}
 			}
+
 			if (itemTotal == 0) {
 				System.out.println("No customers bought " + items[i]);
 			} else {
@@ -60,6 +65,8 @@ public class A1Jedi {
 		}
 	}
 	
+	// Helper method to populate 2D array to hold the number of
+	// each available item that were bought by each customer
 public static void populate (int quantity, String item, int[][] toFill, String[] items, int column) {
 		for (int i=0; i<items.length; i++) {
 			if (items[i].equals(item)) {
