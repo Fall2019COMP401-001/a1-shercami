@@ -63,7 +63,7 @@ public class A1Jedi {
 public static void populate (int quantity, String item, int[][] toFill, String[] items, int column) {
 		for (int i=0; i<items.length; i++) {
 			if (items[i].equals(item)) {
-				toFill[i][column] = quantity;
+				toFill[i][column] += quantity;
 			}
 	}
 }
